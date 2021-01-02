@@ -183,6 +183,11 @@ pub fn go_to_desktop(desktop: &Desktop) -> Result<(), Error> {
     with_service(|s| s.go_to_desktop(desktop))
 }
 
+/// Create new desktop
+pub fn create_desktop() -> Result<(), Error> {
+    with_service(|s| s.create_desktop())
+}
+
 /// Is window on current  desktop
 pub fn is_window_on_current_desktop(hwnd: HWND) -> Result<bool, Error> {
     with_service(|s| s.is_window_on_current_desktop(hwnd))

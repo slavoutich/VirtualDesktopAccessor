@@ -203,6 +203,15 @@ impl VirtualDesktopService {
         Ok(())
     }
 
+    /// Rename desktop
+    pub fn create_desktop(&self) -> Result<(), Error> {
+        Result::from(unsafe {
+            self.virtual_desktop_manager_internal2
+                .create_desktop(&mut None)
+        })?;
+        Ok(())
+    }
+
     /// Get desktop name
     pub fn get_desktop_name(&self, desktop: &Desktop) -> Result<String, Error> {
         let mut ptr = None;
